@@ -32,7 +32,7 @@ const Signup = (props) => {
   const [phoneNum, setphoneNum] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
-  const [profilePic, setprofilePic] = useState(null);
+  const [profilePic, setprofilePic] = useState("");
 
   const handletabs = props.handleTabsChange;
 
@@ -86,6 +86,7 @@ const Signup = (props) => {
       formData.append("password", password);
 
       toast.promise(
+        // localhost:5000/user/register
         fetch(`${context.ipadd}/user/register`, {
           method: "POST",
           body: formData,
@@ -121,7 +122,7 @@ const Signup = (props) => {
     <Flex
       flexDirection="column"
       width="100%"
-      height="70vh"
+      height="75vh"
       justifyContent="center"
       alignItems="center"
       borderRadius={15}
@@ -134,10 +135,10 @@ const Signup = (props) => {
       >
         <Avatar bg="purple.300" />
         <Heading color="pruple.400">Welcome</Heading>
-        <Card minW={{ base: "90%", md: "468px" }} borderRadius={15} shadow={0}>
+        <Card minW={{ base: "90%", md: "465px" }} borderRadius={15} shadow={0}>
           <CardBody p={0}>
             <form>
-              <Stack spacing={4}>
+              <Stack spacing={2}>
                 <FormControl>
                   <InputGroup
                     borderEndRadius={"10px"}

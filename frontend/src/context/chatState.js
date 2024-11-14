@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import io from "socket.io-client";
 
 // Define the IP address for the server
-const ipadd = "https://localhost:5000";
+const ipadd = "http://localhost:5000";
 // Create a socket connection using Socket.IO
 var socket = io(ipadd);
 

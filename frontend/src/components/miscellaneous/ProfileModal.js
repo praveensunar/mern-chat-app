@@ -170,7 +170,9 @@ export const ProfileModal = ({ isOpen, onClose, user, setuser }) => {
                       alt="Profile Picture"
                       mx="auto"
                     />
-                    {/* Edit icon */}
+
+                    
+                    Edit icon
                     {showEditIcon && (
                       <Box
                         textAlign={"center"}

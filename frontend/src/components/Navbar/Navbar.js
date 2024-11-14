@@ -72,7 +72,7 @@ const Navbar = (props) => {
       >
         <Flex justify={"space-between"}>
           {/* Logo */}
-          <Text fontSize="2xl">Conversa</Text>
+          <Text fontSize="3xl">Talk-Hub</Text>
 
           <Box
             display={{ base: "none", md: "block" }}
@@ -92,7 +92,7 @@ const Navbar = (props) => {
               {icon}
             </Button>
             {/* Github link */}
-            <Button
+            {/* <Button
               borderRadius={"full"}
               borderWidth={1}
               fontSize={"small"}
@@ -104,7 +104,7 @@ const Navbar = (props) => {
               }}
             >
               <FaGithub />
-            </Button>
+            </Button> */}
             {/* Profile menu */}
             {localStorage.getItem("token") && (
               <ProfileMenu

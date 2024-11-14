@@ -8,7 +8,7 @@ const cloudinary = require("cloudinary").v2;
 const imageupload = require("../config/imageupload.js");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
-dotenv.config({ path: "./.env" });
+dotenv.config({ path: '../.env' });
 const JWT_SECRET = process.env.JWT_SECRET;
 
 let mailTransporter = nodemailer.createTransport({
@@ -20,7 +20,7 @@ let mailTransporter = nodemailer.createTransport({
 });
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_ClOUD_NAME,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
@@ -82,15 +82,15 @@ const register = async (req, res) => {
     us.profilePic =
       "https://play-lh.googleusercontent.com/Oe0NgYQ63TGGEr7ViA2fGA-yAB7w2zhMofDBR3opTGVvsCFibD8pecWUjHBF_VnVKNdJ";
 
-    await User.insertMany(us);
+    // await User.insertMany(us);
 
-    const bot = await User.findOne({ email: email + "bot" });
+    // const bot = await User.findOne({ email: email + "bot" });
 
-    const newConversation = new Conversation({
-      members: [newUser._id, bot._id],
-    });
+    // const newConversation = new Conversation({
+    //   members: [newUser._id, bot._id],
+    // });
 
-    await newConversation.save();
+    // await newConversation.save();
 
     const data = {
       user: {
