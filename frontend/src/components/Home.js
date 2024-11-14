@@ -75,7 +75,7 @@ const Home = () => {
         textAlign="center"
       >
         &copy; 2024 Talk-Hub. All rights reserved.
-        <Link to="#" target="_blank">
+        <Link to="https://www.linkedin.com/in/praveen-vishwakarma-/" target="_blank">
           <Text as="u" color="purple.500" ml={1}>
             Praveen
           </Text>

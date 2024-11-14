@@ -280,7 +280,7 @@ const sendotp = async (req, res) => {
           </style> 
       </head>
       <body>
-              <strong><h1>Conversa - online chatting app</h1></strong>
+              <strong><h1>Talk-Hub - online chatting app</h1></strong>
           <div class="container">
               <h2>Your Otp is</h2>
               <strong><p>${otp}</p><strong>

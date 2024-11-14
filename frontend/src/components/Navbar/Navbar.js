@@ -72,7 +72,7 @@ const Navbar = (props) => {
       >
         <Flex justify={"space-between"}>
           {/* Logo */}
-          <Text fontSize="3xl">Talk-Hub</Text>
+          <Text fontSize="3xl" fontWeight={"bold"}>Talk-Hub</Text>
 
           <Box
             display={{ base: "none", md: "block" }}
@@ -91,20 +91,7 @@ const Navbar = (props) => {
             >
               {icon}
             </Button>
-            {/* Github link */}
-            {/* <Button
-              borderRadius={"full"}
-              borderWidth={1}
-              fontSize={"small"}
-              backgroundColor={"transparent"}
-              p={3}
-              mr={2}
-              onClick={() => {
-                window.open("https://github.com/pankil-soni");
-              }}
-            >
-              <FaGithub />
-            </Button> */}
+            
             {/* Profile menu */}
             {localStorage.getItem("token") && (
               <ProfileMenu
