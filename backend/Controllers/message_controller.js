@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 
 const configuration = new GoogleGenerativeAI(process.env.GENERATIVE_API_KEY);
-const modelId = "gemini-pro";
+const modelId = "gemini-1.5-pro";
 const model = configuration.getGenerativeModel({ model: modelId });
 
 const sendMessage = async (req, res) => {

@@ -82,15 +82,15 @@ const register = async (req, res) => {
     us.profilePic =
       "https://play-lh.googleusercontent.com/Oe0NgYQ63TGGEr7ViA2fGA-yAB7w2zhMofDBR3opTGVvsCFibD8pecWUjHBF_VnVKNdJ";
 
-    // await User.insertMany(us);
+    await User.insertMany(us);
 
-    // const bot = await User.findOne({ email: email + "bot" });
+    const bot = await User.findOne({ email: email + "bot" });
 
-    // const newConversation = new Conversation({
-    //   members: [newUser._id, bot._id],
-    // });
+    const newConversation = new Conversation({
+      members: [newUser._id, bot._id],
+    });
 
-    // await newConversation.save();
+    await newConversation.save();
 
     const data = {
       user: {

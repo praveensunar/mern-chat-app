@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+
+
 import {
   ArrowForwardIcon,
   CheckCircleIcon,
@@ -318,7 +320,7 @@ export const ChatArea = () => {
 
             <Box
               id="chat-box"
-              h={"85%"}
+              h={"75%"}
               // flex={1}
               overflowY="auto"
               sx={scrollbarconfig}
@@ -550,16 +552,18 @@ export const ChatArea = () => {
                       >
                         <FaFileUpload />
                       </Button>
+                    {/*..... emoji .........*/}
                     </InputLeftElement>
+                    
                   )}
-
+                
                   <Input
                     placeholder="Type a message"
                     id={"new-message"}
                     onChange={(e) => handleTyping(e)}
                     borderRadius={"10px"}
                   />
-
+  
                   <InputRightElement>
                     <Button
                       onClick={(e) =>

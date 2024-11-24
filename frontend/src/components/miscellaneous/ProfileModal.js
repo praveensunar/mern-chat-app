@@ -172,7 +172,7 @@ export const ProfileModal = ({ isOpen, onClose, user, setuser }) => {
                     />
 
                     
-                    Edit icon
+                    {/* Edit icon */}
                     {showEditIcon && (
                       <Box
                         textAlign={"center"}

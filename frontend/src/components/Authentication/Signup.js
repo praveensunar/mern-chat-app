@@ -32,7 +32,7 @@ const Signup = (props) => {
   const [phoneNum, setphoneNum] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
-  const [profilePic, setprofilePic] = useState("");
+  const [profilePic, setprofilePic] = useState(null);
 
   const handletabs = props.handleTabsChange;
 
@@ -53,70 +53,136 @@ const Signup = (props) => {
 
   const handleShowClick = () => setShowPassword(!showPassword);
 
+  // 
+  
+
+  // const handleSignup = async (e) => {
+  //   e.preventDefault();
+  
+  //   if (!profilePic || email === "" || name === "" || phoneNum === "" || password === "") {
+  //     showtoast("All fields are required, including a profile picture");
+  //     return;
+  //   }
+  
+  //   const formData = new FormData();
+  //   formData.append("profilePic", profilePic);
+  //   formData.append("email", email);
+  //   formData.append("name", name);
+  //   formData.append("phoneNum", phoneNum);
+  //   formData.append("password", password);
+  
+  //   try {
+  //     const response = await fetch(`${context.ipadd}/user/register`, {
+  //       method: "POST",
+  //       body: formData,
+  //     });
+  
+  //     if (!response.ok) {
+  //       const resdata = await response.json();
+  //       throw new Error(resdata.error || "Failed to create account");
+  //     }
+  
+  //     const resdata = await response.json();
+  //     localStorage.setItem("token", resdata.authtoken);
+  //     handletabs(0);
+  //     toast({
+  //       title: "Account created.",
+  //       description: "Your account has been created successfully.",
+  //       status: "success",
+  //       duration: 5000,
+  //       isClosable: true,
+  //     });
+  //   } catch (error) {
+  //     toast({
+  //       title: "Error",
+  //       description: error.message,
+  //       status: "error",
+  //       duration: 5000,
+  //       isClosable: true,
+  //     });
+  //   }
+  // };
+  
+
+
+
   const handleSignup = async (e) => {
     e.preventDefault();
-
+  
+    // Email validation regex
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/; // Only @gmail.com addresses
+    const phoneRegex = /^[0-9]{10}$/; // Exactly 10 digits
+  
+    // Check if all fields are filled
     if (email === "" || name === "" || phoneNum === "" || password === "") {
-      showtoast("All fields are required");
+      showtoast("All fields are required, including a profile picture");
       return;
-    } else if (name.length > 20 || name.length < 3) {
-      showtoast("Name should be atlest 3 and atmost 20 characters long");
+    }
+  
+    // Validate email
+    if (!emailRegex.test(email)) {
+      showtoast("Please enter a valid Gmail address (e.g., user@gmail.com)");
       return;
-    } else if (!email.includes("@") || !email.includes(".")) {
-      showtoast("Invalid email");
+    }
+  
+    // Validate phone number
+    if (!phoneRegex.test(phoneNum)) {
+      showtoast("Phone number must be exactly 10 digits and numeric");
       return;
-    } else if (email.length > 50) {
-      showtoast("Email should be atmost 50 characters long");
-      return;
-    } else if (phoneNum.length !== 10) {
-      showtoast("Invalid phone number");
-      return;
-    } else if (password.length < 8 || password.length > 20) {
-      showtoast("Invalid Password");
-      return;
-    } else if (password !== confirmpassword) {
+    }
+  
+    // Validate passwords match
+    if (password !== confirmpassword) {
       showtoast("Passwords do not match");
       return;
-    } else {
-      const formData = new FormData();
+    }
+  
+    // Prepare form data
+    const formData = new FormData();
+    {
       formData.append("profilePic", profilePic);
-      formData.append("email", email);
-      formData.append("name", name);
-      formData.append("phoneNum", phoneNum);
-      formData.append("password", password);
-
-      toast.promise(
-        // localhost:5000/user/register
-        fetch(`${context.ipadd}/user/register`, {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => {
-            if (response.status !== 200) {
-              response.json().then((resdata) => {});
-              throw new Error("Failed to fetch data");
-            } else {
-              response.json().then((resdata) => {
-                localStorage.setItem("token", resdata.authtoken);
-                handletabs(0);
-              });
-            }
-          })
-          .catch((error) => {}),
-        {
-          loading: { title: "Creating account...", description: "please wait" },
-          success: {
-            title: "Account created.",
-            description: "We have created your account for you.",
-          },
-          error: {
-            title: "An error occurred.",
-            description: "We were unable to create your account.",
-          },
-        }
-      );
+    }
+    // formData.append("profilePic", profilePic);
+    formData.append("email", email);
+    formData.append("name", name);
+    formData.append("phoneNum", phoneNum);
+    formData.append("password", password);
+  
+    try {
+      const response = await fetch(`${context.ipadd}/user/register`, {
+        method: "POST",
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        const resdata = await response.json();
+        throw new Error(resdata.error || "Failed to create account");
+      }
+  
+      const resdata = await response.json();
+      localStorage.setItem("token", resdata.authtoken);
+      handletabs(0);
+      toast({
+        title: "Account created.",
+        description: "Your account has been created successfully.",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
+  
+
+
+
 
   return (
     <Flex
@@ -245,7 +311,7 @@ const Signup = (props) => {
                   <Flex align="center">
                     {!profilePic && (
                       <Text mx={2} fontSize="sm">
-                        Upload Profile Picture
+                        Upload Profile Picture (optional)
                       </Text>
                     )}
                     {profilePic && (

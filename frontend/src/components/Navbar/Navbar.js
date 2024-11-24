@@ -46,7 +46,7 @@ const Navbar = (props) => {
           >
             {icon}
           </Button>
-          {/* Github link */}
+          {/* Github link
           <Link
             p={3}
             borderRadius={"full"}
@@ -57,7 +57,7 @@ const Navbar = (props) => {
             mx={1}
           >
             <FaGithub />
-          </Link>
+          </Link> */}
         </Box>
       )}
 
