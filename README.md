@@ -6,14 +6,6 @@ A full-stack MERN (MongoDB, Express.js, React.js, Node.js) chat application with
 
 NOTE!!! if you want to use the given website please wait for 1 minute after logging in for the first time for the backend server to get restarted as it is a free server.
 
-Guest User login accounts:
-```
-username : guestuser1@gmail.com, guestuser2@gmail.com
-password: 1234guest
-```
-
-
-
 ## Table of Contents
 
 - [Features](#features)
