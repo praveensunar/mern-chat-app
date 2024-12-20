@@ -1,4 +1,4 @@
-# Conversa - MERN Chat Application
+# Talk-hub - MERN Chat Application
 
 ![Project Banner](screenshots\Screenshot 2024-11-20 173948.png)
 
