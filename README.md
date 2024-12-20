@@ -1,6 +1,6 @@
 # Conversa - MERN Chat Application
 
-![Project Banner](screenshots/banner.png)
+![Project Banner](screenshots\Screenshot 2024-11-20 173948.png)
 
 A full-stack MERN (MongoDB, Express.js, React.js, Node.js) chat application with Personal Chatbot. Conversa is a chat-app with various features like personalized chatbot which remembers the context, login, signup, profile photo uploading, dark and light mode, real-time chatting, message notifications, typing animation, message deletion, active/online status tracking, message seen status, and sending image messages with captions.
 
