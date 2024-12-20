@@ -156,11 +156,5 @@ password: 1234guest
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 
-## License
-This project is licensed under the MIT License.
 
-## About the Author 📝
-This project was developed by **Pankil Soni**. Feel free to reach out with any questions or suggestions.
-- gmail - pmsoni2016@gmail.com
-- kaggle - https://www.kaggle.com/pankilsoni
-- LinkedIn - https://www.linkedin.com/in/pankil-soni-5a0541170/
+
